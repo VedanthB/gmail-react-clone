@@ -21,7 +21,6 @@ import React from 'react'
 
      return (
          <div className='mail' >
-             <h1>papapap</h1>
              <div className='mail__tools' >
                  <div className='mail__toolsLeft' >
 
