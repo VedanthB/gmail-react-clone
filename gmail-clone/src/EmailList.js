@@ -13,6 +13,7 @@ import React from 'react'
  import Section from './Section';
  import PeopleIcon from '@material-ui/icons/People';
  import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+ import EmailRow from './EmailRow';
 
  function EmailList() {
      return (
@@ -60,6 +61,15 @@ import React from 'react'
                       <Section Icon={LocalOfferIcon } title='Promotion' color='green'  />
 
                  </div>
+
+                   <div className='emailList_list' >
+
+                       <EmailRow title='Twitch' discription='This is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a test' time='10:00 PM' subject='Hello Fellow Streamer!!' />
+                       <EmailRow title='Facebook' discription='This is a test too' time='11:21 PM' subject='Hello Fellow bummer!!' />
+
+                  </div>
+
+
 
          </div>
      )
