@@ -40,3 +40,13 @@
 .sidebarOption--active > p {
     display: inline !important;
 } 
+
+.sidebar__footer {
+    display: flex;
+    justify-content: center;
+} 
+
+.sidebar__footer {
+    display: flex;
+    justify-content: center;
+} 
