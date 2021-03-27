@@ -10,7 +10,7 @@ import React from 'react'
 
 
  function SendMail() {
-     const { register, handleSubmit, watch, errors } = useForm();
+     const { register, handleSubmit,  errors } = useForm();
 
      const onSubmit = (formData) => {
          console.log(formData)
