@@ -35,7 +35,7 @@ function Sidebar() {
              <SidebarOption Icon={InboxIcon} title='Inbox' number={54} selected='true' />
              <SidebarOption Icon={StarIcon} title='Starred' number={14} />
              <SidebarOption Icon={AccessTimeIcon} title='Snoozed' number={4} />
-             <SidebarOption Icon={LabelImportantIcon} title='Important' number={56} />
+             <SidebarOption Icon={LabelImportantIcon} title='Important' number={6} />
              <SidebarOption Icon={NearMeIcon} title='Sent' number={10} />
              <SidebarOption Icon={NoteIcon} title='Drafts' number={89} />
              <SidebarOption Icon={ExpandMoreIcon} title='More' number={7} />
