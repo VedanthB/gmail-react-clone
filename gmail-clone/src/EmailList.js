@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
  import './EmailList.css'
  import Checkbox from '@material-ui/core/Checkbox';
  import IconButton from '@material-ui/core/IconButton';
@@ -14,8 +14,27 @@ import React from 'react'
  import PeopleIcon from '@material-ui/icons/People';
  import LocalOfferIcon from '@material-ui/icons/LocalOffer';
  import EmailRow from './EmailRow';
+import { db } from './firebase';
 
  function EmailList() {
+     const [emails, setEmails] = useState([]);
+
+     useEffect(() => {
+        db.collection('emails')
+          .orderBy('timestamp', 'desc')
+          .onSnapshot((snapshot) => 
+            setEmails(
+                snapshot.docs.map((doc) => ({
+                     id: doc.id,
+                      data: doc.data()
+                }) 
+                )
+            )
+          ) 
+     }, [])
+
+
+
      return (
          <div className='emailList' >
              <div className='emailList__settings' >
@@ -64,8 +83,23 @@ import React from 'react'
 
                    <div className='emailList_list' >
 
-                       <EmailRow title='Twitch' discription='This is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a test' time='10:00 PM' subject='Hello Fellow Streamer!!' />
-                       <EmailRow title='Facebook' discription='This is a test too' time='11:21 PM' subject='Hello Fellow bummer!!' />
+                       {emails.map(({id, data:{ to , subject, message, timestamp }}) => (
+                          <EmailRow 
+                             id={id}
+                             key={id}
+                             title={to}
+                             subject={subject}
+                             discription={message}
+                             time={new Date(timestamp?.seconds * 1000 ).toUTCString()}
+                            
+                          />
+                       ))}
+
+                       {/* <EmailRow 
+                               title='Twitch'  
+                               discription='This is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a test' 
+                             time='10:00 PM' subject='Hello Fellow Streamer!!' />
+                    <EmailRow title='Facebook' discription='This is a test too' time='11:21 PM' subject='Hello Fellow bummer!!' /> */}
 
                   </div>
 

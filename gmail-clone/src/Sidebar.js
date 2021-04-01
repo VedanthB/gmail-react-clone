@@ -16,10 +16,20 @@ import DuoIcon from '@material-ui/icons/Duo';
 import PhoneIcon from '@material-ui/icons/Phone';
 import { openSendMessage } from './features/mailSlice';
 import { useDispatch } from 'react-redux';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { auth } from './firebase';
+import { logout } from './features/userSlice';
 
 
 function Sidebar() {
     const dispatch = useDispatch();
+
+    const signOut = () => {
+        auth.signOut().then(() => {
+            dispatch(logout())
+
+        })
+    }
 
     return (
         <div>
@@ -35,7 +45,7 @@ function Sidebar() {
              <SidebarOption Icon={InboxIcon} title='Inbox' number={54} selected='true' />
              <SidebarOption Icon={StarIcon} title='Starred' number={14} />
              <SidebarOption Icon={AccessTimeIcon} title='Snoozed' number={4} />
-             <SidebarOption Icon={LabelImportantIcon} title='Important' number={56} />
+             <SidebarOption Icon={LabelImportantIcon} title='Important' number={6} />
              <SidebarOption Icon={NearMeIcon} title='Sent' number={10} />
              <SidebarOption Icon={NoteIcon} title='Drafts' number={89} />
              <SidebarOption Icon={ExpandMoreIcon} title='More' number={7} />
@@ -52,6 +62,17 @@ function Sidebar() {
                      <PhoneIcon />
                  </IconButton>
                  </div>
+             </div>
+
+             <div>
+                 <Button
+                  startIcon={<ExitToAppIcon fontSize='large'/>} 
+                  className='sidebar__logout'
+                  onClick={signOut}
+                 >
+                    Log Out
+                 </Button>
+
              </div>
         </div>
     )
