@@ -16,10 +16,20 @@ import DuoIcon from '@material-ui/icons/Duo';
 import PhoneIcon from '@material-ui/icons/Phone';
 import { openSendMessage } from './features/mailSlice';
 import { useDispatch } from 'react-redux';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { auth } from './firebase';
+import { logout } from './features/userSlice';
 
 
 function Sidebar() {
     const dispatch = useDispatch();
+
+    const signOut = () => {
+        auth.signOut().then(() => {
+            dispatch(logout())
+
+        })
+    }
 
     return (
         <div>
@@ -52,6 +62,17 @@ function Sidebar() {
                      <PhoneIcon />
                  </IconButton>
                  </div>
+             </div>
+
+             <div>
+                 <Button
+                  startIcon={<ExitToAppIcon fontSize='large'/>} 
+                  className='sidebar__logout'
+                  onClick={signOut}
+                 >
+                    Log Out
+                 </Button>
+
              </div>
         </div>
     )

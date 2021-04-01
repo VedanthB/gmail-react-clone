@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
  import './Mail.css'
  import ArrowBackIcon from '@material-ui/icons/ArrowBack';
  import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
@@ -14,8 +14,8 @@ import React from 'react'
  import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
  import PrintIcon from '@material-ui/icons/Print';
  import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { useSelector } from 'react-redux';
-import { selectedOpenMail } from './features/mailSlice';
+ import { useSelector } from 'react-redux';
+ import { selectedOpenMail } from './features/mailSlice';
 
 
  function Mail() {
