@@ -3,7 +3,7 @@
 A gmail clone using react-redux made to practice and learn.
 
 - Link to youtube video:
-- Link to live demo:
+- Link to live demo: https://clone-react-f0bf1.firebaseapp.com
 
 # Technologies and dependencies used and learned.
 
